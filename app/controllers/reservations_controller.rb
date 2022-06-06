@@ -29,6 +29,7 @@ class ReservationsController < ApplicationController
       end
     end
   end
+  !api :PUT, '/hotels/id/reservations/id' , 'Update reservation for a given id'
 
   def update
     respond_to do |format|
@@ -41,6 +42,7 @@ class ReservationsController < ApplicationController
       end
     end
   end
+  !api :DELETE, '/hotels/id/reservations/id' , 'Delete reservation for a given id'
 
   def destroy
     @reservation.destroy
