@@ -6,12 +6,12 @@ class HotelsController < ApplicationController
     @hotels = Hotel.all
     render json: @hotels
   end
-
+  !api :GET, '/hotels/id' , 'Shows hotel for a given id'
   def show
     @hotel = Hotel.find(params[:id])
     render json: @hotel
   end
-
+  !api :POST, '/hotels' , 'Add a new hotel to the database'
   def new
     @hotel = Hotel.new
   end
