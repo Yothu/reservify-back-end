@@ -1,7 +1,7 @@
 class HotelsController < ApplicationController
   before_action :authenticate_user!
   load_and_authorize_resource
-
+  !api :GET, '/hotels' , 'List of all available hotels'
   def index
     @hotels = Hotel.all
     render json: @hotels
