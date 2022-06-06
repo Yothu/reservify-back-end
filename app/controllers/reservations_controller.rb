@@ -1,12 +1,12 @@
 class ReservationsController < ApplicationController
   before_action :authenticate_user!
-  #   load_and_authorize_resource
-
+  load_and_authorize_resource
+  api :GET, '/hotels/id/reservations', 'List of all available reservations for a given user'
   def index
     @reservations = current_user.reservations
     render json: @reservations
   end
-
+  api :GET, '/hotels/id/reservations/id', 'Shows reservation for a given id'
   def show
     @reservation = Reservation.find(params[:id])
     render json: @reservation
@@ -15,7 +15,7 @@ class ReservationsController < ApplicationController
   def new
     @reservation = Reservation.new
   end
-
+  api :POST, '/hotels/id/reservations', 'Add a new reservation to the database for a given user'
   def create
     @reservation = Reservation.new(reservation_params)
 
@@ -29,6 +29,7 @@ class ReservationsController < ApplicationController
       end
     end
   end
+  api :PUT, '/hotels/id/reservations/id', 'Update reservation for a given id'
 
   def update
     respond_to do |format|
@@ -41,6 +42,7 @@ class ReservationsController < ApplicationController
       end
     end
   end
+  api :DELETE, '/hotels/id/reservations/id', 'Delete reservation for a given id'
 
   def destroy
     @reservation.destroy
