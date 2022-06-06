@@ -66,6 +66,9 @@ GEM
       i18n (>= 1.6, < 2)
       minitest (>= 5.1)
       tzinfo (~> 2.0)
+    apipie-rails (0.8.1)
+      actionpack (>= 5.0)
+      activesupport (>= 5.0)
     bcrypt (3.1.18)
     bootsnap (1.12.0)
       msgpack (~> 1.2)
@@ -195,6 +198,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  apipie-rails (~> 0.8.1)
   bootsnap
   cancancan
   debug
