@@ -29,7 +29,7 @@ class HotelsController < ApplicationController
       end
     end
   end
-
+  !api :PUT, '/hotels/id' , 'Update hotel for a given id'
   def update
     respond_to do |format|
       if @hotel.update(hotel_params)
@@ -42,6 +42,7 @@ class HotelsController < ApplicationController
     end
   end
 
+  !api :DELETE, '/hotels/id' , 'Delete hotel for a given id'
   def destroy
     @hotel.destroy
     respond_to do |format|
