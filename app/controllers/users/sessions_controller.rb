@@ -2,11 +2,12 @@ class Users::SessionsController < Devise::SessionsController
   respond_to :json
 
   private
-  !api :POST, '/users/sign_in' , 'Login a user to an existing account'
+
+  api :POST, '/users/sign_in', 'Login a user to an existing account'
   def respond_with(_resource, _opts = {})
     render json: { message: 'You are logged in.' }, status: :ok
   end
-  !api :DELETE, '/users/sign_out' , 'Logout a user from an existing account'
+  api :DELETE, '/users/sign_out', 'Logout a user from an existing account'
   def respond_to_on_destroy
     log_out_success && return if current_user
 
