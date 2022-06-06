@@ -3,6 +3,7 @@ class CreateReservations < ActiveRecord::Migration[7.0]
     create_table :reservations do |t|
        t.date :check_in_date
        t.date :check_out_date
+       t.integer :room_number
        
       t.timestamps
     end

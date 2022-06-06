@@ -5,10 +5,12 @@ Rails.application.routes.draw do
   }
 
   get '/member-data', to: 'members#show'
-    
+  resources :hotels do
+    resources :reservations
+  end
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
-  # root "articles#index"
+  root "hotels#index"
 end
