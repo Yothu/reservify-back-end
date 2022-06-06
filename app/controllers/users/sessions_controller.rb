@@ -2,7 +2,7 @@ class Users::SessionsController < Devise::SessionsController
   respond_to :json
 
   private
-
+  !api :POST, '/users/sign_in' , 'Login a user to an existing account'
   def respond_with(_resource, _opts = {})
     render json: { message: 'You are logged in.' }, status: :ok
   end
