@@ -15,6 +15,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_03_152733) do
   enable_extension "plpgsql"
 
   create_table "hotels", force: :cascade do |t|
+    t.string "name"
     t.string "address"
     t.string "city"
     t.string "country"
@@ -40,6 +41,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_03_152733) do
   create_table "reservations", force: :cascade do |t|
     t.date "check_in_date"
     t.date "check_out_date"
+    t.integer "room_number"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
