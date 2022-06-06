@@ -7,4 +7,11 @@ class User < ApplicationRecord
          :jwt_authenticatable,
          :registerable,
          jwt_revocation_strategy: JwtDenylist
+
+  validates :email, presence: true, uniqueness: true
+  validates :password, presence: true, length: { minimum: 6 }  
+
+  def admin?
+    role == 'admin'
+  end
 end
