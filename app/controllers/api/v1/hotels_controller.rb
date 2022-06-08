@@ -11,30 +11,32 @@ class Api::V1::HotelsController < ApplicationController
     render json: @hotel
   end
 
-  def hotels_by_location 
+  def hotels_by_location
     @hotels = Hotel.where(city: params[:city], country: params[:country])
     render json: @hotels
   end
-  def countries 
+
+  def countries
     @countries = Hotel.select(:country).distinct
     render json: @countries
-  end 
+  end
 
   def cities_by_country
     @cities = Hotel.where(country: params[:country]).select(:city).distinct
     render json: @cities
-  end 
+  end
 
   def create
     if @current_user && @current_user.role == 'admin'
       @hotel = Hotel.new(hotel_params)
       if @hotel.save
-        render json: { message: 'Hotel was successfully created.' }
+        render json: { message: 'Hotel was successfully created.' }, status: :created
       else
         render json: @hotel.errors, status: :unprocessable_entity
       end
+    else
+      render json: { message: 'You are not authorized to perform this action.' }, status: :unauthorized
     end
-    # render json: { message: 'You are not authorized to perform this action.' }, status: :unauthorized
   end
 
   def update
@@ -46,12 +48,17 @@ class Api::V1::HotelsController < ApplicationController
   end
 
   def destroy
-    @hotel.destroy
+    if @current_user && @current_user.role == 'admin'
+      @hotel = Hotel.find(params[:id])
 
-    if @hotel.destroy
-      render json: { message: 'Hotel was successfully destroyed.' }
+      if @hotel.destroy
+        render json: { message: 'Hotel was successfully destroyed.' }
+      else
+        render json: { message: 'Something went wrong.' }
+      end
     else
-      render json: { message: 'Something went wrong.' }
+      render json: { message: 'You are not authorized to perform this action.' }, status: :unauthorized
+
     end
   end
 
