@@ -6,9 +6,18 @@ class ApplicationController < ActionController::API
 
   def authenticate_request
     header = request.headers['Authorization']
-
-    header = header.split.last if header
-    decoded = jwt_decode(header)
-    @current_user = User.find(decoded[:user_id])
+    if header.present? 
+      begin
+        header = header.split.last if header
+        decoded = jwt_decode(header)
+        @current_user = User.find(decoded[:user_id])
+      rescue ActiveRecord::RecordNotFound => e
+        render json: { errors: e.message }, status: :unauthorized
+      rescue JWT::DecodeError => e
+        render json: { errors: e.message }, status: :unauthorized
+      end
+    
+    end
+    render json: { errors: 'Authorization header not present' }. to_json, status: :bad_request unless header 
   end
 end
