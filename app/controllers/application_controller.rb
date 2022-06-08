@@ -2,7 +2,7 @@ class ApplicationController < ActionController::API
   include JsonWebToken
   before_action :authenticate_request
   
-    private
+    protected
   
     def authenticate_request
       header = request.headers["Authorization"]
