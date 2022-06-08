@@ -11,17 +11,30 @@ class Api::V1::HotelsController < ApplicationController
     render json: @hotel
   end
 
-  def new
-    @hotel = Hotel.new
+  def hotels_by_location 
+    @hotels = Hotel.where(city: params[:city], country: params[:country])
+    render json: @hotels
   end
+  def countries 
+    @countries = Hotel.select(:country).distinct
+    render json: @countries
+  end 
+
+  def cities_by_country
+    @cities = Hotel.where(country: params[:country]).select(:city).distinct
+    render json: @cities
+  end 
 
   def create
-    @hotel = Hotel.new(hotel_params)
-    if @hotel.save
-      render json: { message: 'Hotel was successfully created.' }
-    else
-      render json: @hotel.errors, status: :unprocessable_entity
+    if @current_user && @current_user.role == 'admin'
+      @hotel = Hotel.new(hotel_params)
+      if @hotel.save
+        render json: { message: 'Hotel was successfully created.' }
+      else
+        render json: @hotel.errors, status: :unprocessable_entity
+      end
     end
+    # render json: { message: 'You are not authorized to perform this action.' }, status: :unauthorized
   end
 
   def update
