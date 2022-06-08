@@ -1,12 +1,11 @@
 class Api::V1::ReservationsController < ApplicationController
- def index
+  def index
     @reservations = @current_user.reservations
     render json: @reservations
   end
 
   def create
     @reservation = @current_user.reservations.new(reservation_params)
-   
 
     if @reservation.save
       render json: { message: 'Reservation was successfully created.' }, status: :created
