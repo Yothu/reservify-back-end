@@ -1,14 +1,10 @@
 class Api::V1::ReservationsController < ApplicationController
   # load_and_authorize_resource
 
-
   def index
-    
-
     @reservations = @current_user.reservations
     render json: @reservations
   end
-
 
   def show
     @reservation = Reservation.find(params[:id])
@@ -18,7 +14,6 @@ class Api::V1::ReservationsController < ApplicationController
   def new
     @reservation = Reservation.new
   end
-
 
   def create
     @reservation = Reservation.new(reservation_params)
@@ -30,7 +25,6 @@ class Api::V1::ReservationsController < ApplicationController
     end
   end
 
-
   def update
     if @reservation.update(reservation_params)
       render json: { message: 'Reservation was successfully updated.' }
@@ -38,7 +32,6 @@ class Api::V1::ReservationsController < ApplicationController
       render json: @reservation.errors, status: :unprocessable_entity
     end
   end
-
 
   def destroy
     @reservation.destroy

@@ -1,19 +1,15 @@
 class Api::V1::HotelsController < ApplicationController
-
   # load_and_authorize_resource
-
 
   def index
     @hotels = Hotel.all
     render json: @hotels
-  end  
+  end
 
   def show
     @hotel = Hotel.find(params[:id])
     render json: @hotel
   end
-
-
 
   def new
     @hotel = Hotel.new
@@ -28,8 +24,6 @@ class Api::V1::HotelsController < ApplicationController
     end
   end
 
- 
-
   def update
     if @hotel.update(hotel_params)
       render json: { message: 'Hotel was successfully updated.' }
@@ -37,8 +31,6 @@ class Api::V1::HotelsController < ApplicationController
       render json: @hotel.errors, status: :unprocessable_entity
     end
   end
-
- 
 
   def destroy
     @hotel.destroy
