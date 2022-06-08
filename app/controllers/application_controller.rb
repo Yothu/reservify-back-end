@@ -6,7 +6,7 @@ class ApplicationController < ActionController::API
 
   def authenticate_request
     header = request.headers['Authorization']
-    if header.present? 
+    if header.present?
       begin
         header = header.split.last if header
         decoded = jwt_decode(header)
@@ -16,8 +16,8 @@ class ApplicationController < ActionController::API
       rescue JWT::DecodeError => e
         render json: { errors: e.message }, status: :unauthorized
       end
-    
+
     end
-    render json: { errors: 'Authorization header not present' }. to_json, status: :bad_request unless header 
+    render json: { errors: 'Authorization header not present' }.to_json, status: :bad_request unless header
   end
 end
