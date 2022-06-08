@@ -1,22 +1,19 @@
-class HotelsController < ApplicationController
-  before_action :authenticate_user!
-  load_and_authorize_resource
+class Api::V1::HotelsController < ApplicationController
 
-  api :GET, '/hotels', 'List of all available hotels'
+  # load_and_authorize_resource
+
 
   def index
     @hotels = Hotel.all
     render json: @hotels
-  end
-
-  api :GET, '/hotels/id', 'Shows hotel for a given id'
+  end  
 
   def show
     @hotel = Hotel.find(params[:id])
     render json: @hotel
   end
 
-  api :POST, '/hotels', 'Add a new hotel to the database'
+
 
   def new
     @hotel = Hotel.new
@@ -31,7 +28,7 @@ class HotelsController < ApplicationController
     end
   end
 
-  api :PUT, '/hotels/id', 'Update hotel for a given id'
+ 
 
   def update
     if @hotel.update(hotel_params)
@@ -41,7 +38,7 @@ class HotelsController < ApplicationController
     end
   end
 
-  api :DELETE, '/hotels/id', 'Delete hotel for a given id'
+ 
 
   def destroy
     @hotel.destroy
