@@ -39,14 +39,6 @@ class Api::V1::HotelsController < ApplicationController
     end
   end
 
-  def update
-    if @hotel.update(hotel_params)
-      render json: { message: 'Hotel was successfully updated.' }
-    else
-      render json: @hotel.errors, status: :unprocessable_entity
-    end
-  end
-
   def destroy
     if @current_user && @current_user.role == 'admin'
       @hotel = Hotel.find(params[:id])
