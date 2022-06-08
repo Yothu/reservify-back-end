@@ -1,7 +1,19 @@
 Rails.application.routes.draw do
+  resources :users
 
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
+  post '/auth/login', to: 'authentication#login'
+  delete '/auth/logout/', to: 'authentication#logout'
+  
+  
+  namespace :api, :defaults => {:format => :json} do
+    namespace :v1 do
+      post '/hotelsbylocation', to: 'hotels#hotels_by_location'
+      get '/countries', to: 'hotels#countries'
+      post '/cities', to: 'hotels#cities_by_country'
+      resources :reservations
+      resources :hotels 
+      
+    end
+  end
 
 end
