@@ -2,10 +2,10 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.1.1'
-
+gem 'jwt'
+gem 'bcrypt', '~> 3.1.7'
 # Gems to create login with devise JWT
-gem 'devise'
-gem 'devise-jwt'
+
 gem 'rack-cors'
 
 # Authorization gem
@@ -38,7 +38,6 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', require: false
 
-gem 'apipie-rails', '~> 0.8.1'
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
