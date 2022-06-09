@@ -11,9 +11,12 @@ class AuthenticationController < ApplicationController
     end
   end
 
-  def logout
+  def logout    
     @user = User.find_by_email(params[:email])
-    @user&.destroy
-    render json: { message: 'Signed out successfully' }
+    if @user&.logout     
+      render json: { message: 'Signed out successfully' }
+    else
+      render json: { error: 'unauthorized' }, status: :unauthorized
+    end
   end
 end
