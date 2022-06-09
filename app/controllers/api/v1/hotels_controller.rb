@@ -1,7 +1,7 @@
 class Api::V1::HotelsController < ApplicationController
   def index
     @hotels = Hotel.all
-    render json: PostSerializer.new(@hotels).serializable_hash[:data][:attributes]
+    render json: @hotels
   end
 
   def show
