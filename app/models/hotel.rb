@@ -1,14 +1,12 @@
 class Hotel < ApplicationRecord
   has_many :reservations, dependent: :delete_all
   # belongs_to :user
-  has_one_attached :image  
+  has_one_attached :image
 
-  def photo_url  
-    Rails.application.routes.url_helpers.url_for(image)  if image.attached?
-  end #By default SQL String limit 255 character 
-  #Ex:- :limit => 40
-
-
+  def photo_url
+    Rails.application.routes.url_helpers.url_for(image) if image.attached?
+  end
+  # Ex:- :limit => 40
 
   # validates :name, presence: true
   # validates :address, presence: true
