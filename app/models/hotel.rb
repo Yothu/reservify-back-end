@@ -1,6 +1,5 @@
 class Hotel < ApplicationRecord
   has_many :reservations, dependent: :delete_all
-  belongs_to :user  
 
   validates :name, presence: true
   validates :address, presence: true
