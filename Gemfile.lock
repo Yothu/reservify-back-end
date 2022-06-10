@@ -85,8 +85,6 @@ GEM
     io-console (0.5.11)
     irb (1.4.1)
       reline (>= 0.3.0)
-    jsonapi-serializer (2.2.0)
-      activesupport (>= 4.2)
     jwt (2.3.0)
     loofah (2.18.0)
       crass (~> 1.0.2)
@@ -171,7 +169,6 @@ DEPENDENCIES
   bootsnap
   cancancan
   debug
-  jsonapi-serializer (~> 2.2)
   jwt
   pg (~> 1.1)
   puma (~> 5.0)
