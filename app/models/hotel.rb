@@ -1,12 +1,6 @@
 class Hotel < ApplicationRecord
   has_many :reservations, dependent: :delete_all
-  belongs_to :user
-  has_one_attached :image
-
-  def photo_url
-    Rails.application.routes.url_helpers.url_for(image) if image.attached?
-  end
-  # Ex:- :limit => 40
+  belongs_to :user  
 
   validates :name, presence: true
   validates :address, presence: true
