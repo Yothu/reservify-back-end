@@ -1,5 +1,6 @@
 class Hotel < ApplicationRecord
   has_many :reservations, dependent: :delete_all
+  has_one_attached :image
 
   validates :name, presence: true
   validates :address, presence: true

@@ -6,6 +6,9 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'jwt'
 # Gems to create login with devise JWT
 
+# AWS S3 image storage
+gem 'aws-sdk-s3'
+
 gem 'rack-cors'
 
 # Authorization gem
