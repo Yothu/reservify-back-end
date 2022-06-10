@@ -2,8 +2,8 @@ class Api::V1::ReservationsController < ApplicationController
   def index
     @reservations = @current_user.reservations
     render json: { id: @reservations.id, room_number: @reservations.room_number,
-                   hotel_id: @reservations.hotel_id, name: @reservations.hotel.name,
-                   price: @reservations.hotel.room_price, stars: @reservations.hotel.stars }
+                   name: @reservations.hotel.name, price: @reservations.hotel.room_price,
+                   stars: @reservations.hotel.stars }
   end
 
   def create
