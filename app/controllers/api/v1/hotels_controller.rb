@@ -2,12 +2,7 @@ class Api::V1::HotelsController < ApplicationController
   def index
     @hotels = Hotel.all
     render json: @hotels
-  end
-
-  def latest
-    @hotel = Hotel.all
-    render json: @hotel, methods: [:photo_url]
-  end
+  end 
 
   def show
     @hotel = Hotel.find(params[:id])
