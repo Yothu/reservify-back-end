@@ -15,8 +15,12 @@ class Api::V1::HotelsController < ApplicationController
   end
 
   def countries
+    countriesArr = []
     @countries = Hotel.select(:country).distinct
-    render json: @countries
+    @countries.each do |country|
+       countriesArr << country.country
+    end
+    render json: countriesArr
   end
 
   def cities_by_country
@@ -56,6 +60,6 @@ class Api::V1::HotelsController < ApplicationController
 
   def hotel_params
     params.require(:hotel).permit(:name, :address, :city, :country, :room_price, :pet_friendly, :number_of_rooms,
-                                  :stars, :current_free_rooms, :image_url, :user_id, :description)
+                                  :stars, :image_url, :user_id, :description)
   end
 end
