@@ -15,8 +15,12 @@ class Api::V1::HotelsController < ApplicationController
   end
 
   def countries
+    countries_arr = []
     @countries = Hotel.select(:country).distinct
-    render json: @countries
+    @countries.each do |country|
+      countries_arr << country.country
+    end
+    render json: countries_arr
   end
 
   def cities_by_country

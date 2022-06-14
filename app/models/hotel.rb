@@ -1,4 +1,5 @@
 class Hotel < ApplicationRecord
+  before_create :set_current_free_rooms
   has_many :reservations, dependent: :delete_all
   has_one_attached :image
 
@@ -11,5 +12,10 @@ class Hotel < ApplicationRecord
   validates :room_price, presence: true, numericality: { only_decimal: true, greater_than: 0 }
   validates :number_of_rooms, presence: true, numericality: { only_integer: true, greater_than: 10 }
   validates :stars, presence: true, numericality: { only_integer: true, greater_than: 0, less_than_or_equal_to: 5 }
-  validates :current_free_rooms, presence: true, numericality: { only_integer: true }
+
+  private
+
+  def set_current_free_rooms
+    self.current_free_rooms = number_of_rooms
+  end
 end

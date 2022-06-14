@@ -1,7 +1,7 @@
 class Api::V1::ReservationsController < ApplicationController
   def index
     @reservations = @current_user.reservations
-    render json: @reservations
+    render json: @reservations.map { |reservation| { reservation:, hotel: reservation.hotel } }
   end
 
   def create
