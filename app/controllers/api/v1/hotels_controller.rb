@@ -1,11 +1,17 @@
 class Api::V1::HotelsController < ApplicationController
   def index
-    @hotels = Hotel.all
+    @all_hotels = Hotel.all
+    @hotels = []
+    @all_hotels.each do |hotel|
+      hotel.image_url = hotel.image.url
+      @hotels << hotel
+    end    
     render json: @hotels
   end
 
   def show
     @hotel = Hotel.find(params[:id])
+    @hotel.image_url = @hotel.image.url
     render json: @hotel
   end
 
