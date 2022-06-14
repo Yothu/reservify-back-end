@@ -21,4 +21,4 @@ Reservation.destroy_all
 
 @hotel1.image.attach(io: File.open('app/assets/images/hotel-image.png'), filename: 'hotel-image.png')
 
-@reservation1 = Reservation.create!( check_in_date: '2020-06-01', check_out_date: '2020-06-02', room_number: 1, user_id: @user1.id, hotel_id: @hotel1.id)
+@reservation1 = Reservation.create!( check_in_date: DateTime.new(2015, 6, 22), check_out_date: DateTime.new(2015, 6, 24), room_number: 1, user_id: User.last.id, hotel_id: Hotel.last.id)
