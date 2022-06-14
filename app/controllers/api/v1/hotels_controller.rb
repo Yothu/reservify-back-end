@@ -5,7 +5,7 @@ class Api::V1::HotelsController < ApplicationController
     @all_hotels.each do |hotel|
       hotel.image_url = hotel.image.url
       @hotels << hotel
-    end    
+    end
     render json: @hotels
   end
 
