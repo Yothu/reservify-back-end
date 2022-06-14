@@ -17,7 +17,7 @@
 ![ruby version](https://img.shields.io/badge/Ruby-3.x-orange)
 
 ## Table of Contents
-
+- [Api Documentation](#api-documentation)
 - [Description](#description)
 - [Built With](#built-with)
 - [Getting Started](#getting-started)
@@ -35,6 +35,10 @@
 - [Show Your Support](#how-your-support)
 - [Acknowledgments](#acknowledgments)
 - [License](#license)
+<hr>
+
+## Api Documentation
+>You can review the documentation for the API [here](https://documenter.getpostman.com/view/13085631/Uz5MEZ6D#d4697ce8-cda6-4658-9891-aca869e0acc9).
 <hr>
 
 ## Description

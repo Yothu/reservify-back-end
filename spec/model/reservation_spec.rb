@@ -21,11 +21,6 @@ RSpec.describe Hotel, type: :model do
     expect(@reservation).to be_valid
   end
 
-  it 'should have a room number' do
-    @reservation.room_number = nil
-    expect(@reservation).to_not be_valid
-  end
-
   it 'should have a user id' do
     @reservation.user_id = nil
     expect(@reservation).to_not be_valid
@@ -34,17 +29,7 @@ RSpec.describe Hotel, type: :model do
   it 'should have a hotel id' do
     @reservation.hotel_id = nil
     expect(@reservation).to_not be_valid
-  end
-
-  it 'should have a room number that is a number' do
-    @reservation.room_number = 'a'
-    expect(@reservation).to_not be_valid
-  end
-
-  it 'should have a room number that is greater than 0' do
-    @reservation.room_number = 0
-    expect(@reservation).to_not be_valid
-  end
+  end  
 
   it 'should have a user id that is a number' do
     @reservation.user_id = 'a'
@@ -65,9 +50,5 @@ RSpec.describe Hotel, type: :model do
     @reservation.hotel_id = 0
     expect(@reservation).to_not be_valid
   end
-
-  it 'should have a room number that is unique' do
-    @reservation2 = Reservation.new(room_number: 1, user_id: @user.id, hotel_id: @hotel.id)
-    expect(@reservation2).to_not be_valid
-  end
+  
 end
