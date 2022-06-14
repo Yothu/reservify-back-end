@@ -29,7 +29,7 @@ RSpec.describe Hotel, type: :model do
   it 'should have a hotel id' do
     @reservation.hotel_id = nil
     expect(@reservation).to_not be_valid
-  end  
+  end
 
   it 'should have a user id that is a number' do
     @reservation.user_id = 'a'
@@ -50,5 +50,4 @@ RSpec.describe Hotel, type: :model do
     @reservation.hotel_id = 0
     expect(@reservation).to_not be_valid
   end
-  
 end
