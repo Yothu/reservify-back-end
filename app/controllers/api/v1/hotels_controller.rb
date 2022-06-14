@@ -1,11 +1,17 @@
 class Api::V1::HotelsController < ApplicationController
   def index
-    @hotels = Hotel.all
+    @all_hotels = Hotel.all
+    @hotels = []
+    @all_hotels.each do |hotel|
+      hotel.image_url = hotel.image.url
+      @hotels << hotel
+    end
     render json: @hotels
   end
 
   def show
     @hotel = Hotel.find(params[:id])
+    @hotel.image_url = @hotel.image.url
     render json: @hotel
   end
 
@@ -59,7 +65,8 @@ class Api::V1::HotelsController < ApplicationController
   private
 
   def hotel_params
-    params.require(:hotel).permit(:name, :address, :city, :country, :room_price, :pet_friendly, :number_of_rooms,
-                                  :stars, :image_url, :user_id, :description)
+    params.require(:hotel).permit(:name, :address, :city, :country, :room_price, :pet_friendly, :wifi,
+                                  :air_conditioning, :public_pool, :number_of_rooms, :stars, :current_free_rooms,
+                                  :image_url, :user_id, :description, :image)
   end
 end
