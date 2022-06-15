@@ -18,21 +18,19 @@ RSpec.describe User, type: :model do
     @user.password = nil
     expect(@user).to_not be_valid
   end
-    it 'username should be present' do
+  it 'username should be present' do
     @user.username = nil
     expect(@user).to_not be_valid
   end
-    it 'username should be unique' do
+  it 'username should be unique' do
     @user2 = User.new(name: 'User', email: 'test@test.com', password: '123456', role: 'admin', username: 'test')
     @user2.save
     expect(@user2).to_not be_valid
-    end
+  end
 
-    it 'email should be unique' do
+  it 'email should be unique' do
     @user2 = User.new(name: 'User', email: 'test@test.com', password: '123456', role: 'admin', username: 'test')
     @user2.save
     expect(@user2).to_not be_valid
-    end
-    
-
+  end
 end
