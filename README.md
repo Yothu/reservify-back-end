@@ -77,9 +77,9 @@ cd reservify-back-end
 The following technologies must be installed before hand in your local machine:
 
  - Ruby (ruby --version). Should be 3.0.1 or newer.
- - SQLite3 (sqlite3 --version)
+ - Postgres ('pg', '~> 1.1')
  - Node.js (node --version)
- - Yarn (yarn --version)  
+ 
 
 The commands in parenthesis `()` can be used to verify if they are installed and their corresponding versions.
 
