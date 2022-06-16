@@ -17,24 +17,39 @@
 ![ruby version](https://img.shields.io/badge/Ruby-3.x-orange)
 
 ## Table of Contents
-- [Api Documentation](#api-documentation)
-- [Description](#description)
-- [Built With](#built-with)
-- [Getting Started](#getting-started)
+- [Reservify app](#reservify-app)
+  - [Table of Contents](#table-of-contents)
+  - [Api Documentation](#api-documentation)
+  - [Description](#description)
+  - [Built With](#built-with)
+  - [Getting Started](#getting-started)
   - [Clone Repo](#clone-repo)
+- [wait a couple seconds for it to download](#wait-a-couple-seconds-for-it-to-download)
+- [...](#)
+- [...](#-1)
+- [then move into the new directory](#then-move-into-the-new-directory)
   - [Prerequisites](#prerequisites)
-  - [Install Rails](#install-rails)
-- [Setup](#setup)
+    - [Install Rails](#install-rails)
+- [wait a few seconds for it to download](#wait-a-few-seconds-for-it-to-download)
+- [...](#-2)
+- [...](#-3)
+- [verify that it was installed by running](#verify-that-it-was-installed-by-running)
+  - [Setup](#setup)
   - [System Dependencies](#system-dependencies)
   - [Database Initialization](#database-initialization)
-- [Usage](#usage)
+  - [Usage](#usage)
   - [Start Server](#start-server)
   - [Testing RSpec](#testing-rspec)
-- [How To Contribute?](#how-to-contribute)
-- [Collaborators](#collaborators)
-- [Show Your Support](#how-your-support)
-- [Acknowledgments](#acknowledgments)
-- [License](#license)
+  - [How To Contribute?](#how-to-contribute)
+- [...](#-4)
+- [...](#-5)
+    - [That's all folks!](#thats-all-folks)
+- [Kanban board](#kanban-board)
+  - [Collaborators](#collaborators)
+  - [Show your support](#show-your-support)
+  - [Acknowledgments](#acknowledgments)
+  - [**Microverse**](#microverse)
+  - [📝 License](#-license)
 <hr>
 
 ## Api Documentation
@@ -162,7 +177,15 @@ git merge <branchname>
 Continue by solving any merge conflicts that may arise, test the functionality of the app once more, and you're changes are ready to be pushed with `git push origin <branchname>`
 <hr>
 
-# That's all folks!
+### That's all folks!
+
+# Kanban board
+
+Here is the [Kanban board](https://github.com/Yothu/reservify-front-end/projects/1) of the project!
+
+Here is the [issue](https://github.com/Yothu/reservify-front-end/issues/14) that contains the images of the initial state of the **Kanban board**
+
+Final number of team members: 5
 
 ## Collaborators
 👤 **Eduardo**
